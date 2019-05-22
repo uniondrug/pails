@@ -22,7 +22,7 @@ class Container extends Di\FactoryDefault implements ContainerInterface
     /**
      * Pails Version
      */
-    const VERSION = '3.2.0';
+    const VERSION = '4.0.0';
 
     /**
      * @var Loader
@@ -237,6 +237,14 @@ class Container extends Di\FactoryDefault implements ContainerInterface
     }
 
     /**
+     * @return string
+     */
+    public function tmpConfigPath()
+    {
+        return $this->tmpPath().DIRECTORY_SEPARATOR.'config';
+    }
+
+    /**
      * Helpers: Get the path to the database directory.
      *
      * @return string
@@ -317,7 +325,8 @@ class Container extends Di\FactoryDefault implements ContainerInterface
             return $service;
         }
 
-        $configFile = $this->configPath() . DIRECTORY_SEPARATOR . $section . '.php';
+        $configFile = $this->tmpConfigPath(). DIRECTORY_SEPARATOR . $section . '.php';
+        file_exists($configFile) || $configFile = $this->configPath() . DIRECTORY_SEPARATOR . $section . '.php';
         if (file_exists($configFile)) {
             // register a new config service
             $this->setShared($serviceName, Config::class);
