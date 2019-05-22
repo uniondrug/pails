@@ -59,6 +59,9 @@ abstract class Application extends ApplicationBase implements InjectionAwareInte
         Commands\Db\StatusCommand::class,
         Commands\Db\TestCommand::class,
 
+        Commands\Consul\KvDownloadCommand::class,
+        Commands\Consul\KvUploadCommand::class,
+
         Commands\Cache\ClearCommand::class,
 
         Commands\Mns\CreateQueueCommand::class,
