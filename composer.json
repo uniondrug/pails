@@ -1,5 +1,5 @@
 {
-  "name": "xueron/pails",
+  "name": "uniondrug/pails",
   "type": "library",
   "description": "Pails (PhalconRails) is used to create a rails-like PHP app based on Phalcon.",
   "keywords": [
